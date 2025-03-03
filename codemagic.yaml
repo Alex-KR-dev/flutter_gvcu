@@ -1,0 +1,17 @@
+workflows:
+  ios-release:
+    name: iOS Release Build
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - flutter clean
+      - flutter pub get
+      - flutter build ipa --release
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - ianalex582@gmail.com
